@@ -14,10 +14,16 @@ Try running the following commands:
 - Find [dbt events](https://events.getdbt.com) near you
 - Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
 
-#### conf file
+#### conf file:
 - ~/.dbt/profiles.yml
 
-#### bash command
+#### bash command:
 - dbt init dbt_project_name
 - dbt debug
 - dbt build
+- dbt run --select stg_flights__aircrafts
+
+
+- Build dbt Model: > Executing task: dbt build --select stg_flights__aircrafts --project-dir /Users/nijat/fun/dbt-demo/dbt_course_practice --profiles-dir /Users/nijat/.dbt
+
+- dbt source freshness
