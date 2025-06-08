@@ -25,5 +25,7 @@ Try running the following commands:
 
 
 - Build dbt Model: > Executing task: dbt build --select stg_flights__aircrafts --project-dir /Users/nijat/fun/dbt-demo/dbt_course_practice --profiles-dir /Users/nijat/.dbt
-
 - dbt source freshness
+- dbt build --select stg_flights__bookings --log-level debug
+- dbt build --select stg_flights__bookings --log-level debug --full-refresh (if add new columns)
+
