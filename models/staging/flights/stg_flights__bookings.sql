@@ -1,13 +1,7 @@
 {{
   config(
-    materialized = 'ephemeral',
-    on_configuration_change = "apply",
-    indexes=[
-        {
-            "columns": ["book_date"],
-            "unique": false
-        }
-    ]
+    materialized = 'incremental',
+    incremental_strategy = 'append'
     )
 }}
 select
@@ -15,3 +9,6 @@ select
     book_date,
     total_amount
 from {{ source('demo_src', 'bookings') }}
+{% if is_incremental() %}
+where book_ref > (select max(book_ref) from {{ this }})
+{% endif %}

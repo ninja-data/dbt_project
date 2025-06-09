@@ -29,3 +29,14 @@ Try running the following commands:
 - dbt build --select stg_flights__bookings --log-level debug
 - dbt build --select stg_flights__bookings --log-level debug --full-refresh (if add new columns)
 
+- dbt docs generate
+- dbt docs serve
+
+
+> dbt run — Runs the models you defined in your project
+
+> dbt build — Builds and tests your selected resources such as models, seeds, snapshots, and tests
+
+> dbt test — Executes the tests you defined for your project
+
+- dbt build -s stg_flights__bookings --full-refresh
