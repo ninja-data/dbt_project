@@ -40,3 +40,11 @@ Try running the following commands:
 > dbt test — Executes the tests you defined for your project
 
 - dbt build -s stg_flights__bookings --full-refresh
+
+- dbt seed -s city_region
+
+- dbt run --select city_region+
+
+- dbt build --select city_region+ 
+
+- dbt seed --full-refresh
