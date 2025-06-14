@@ -8,7 +8,7 @@
        strategy='timestamp',
        updated_at='updated_at',
        dbt_valid_to_current="'9999-01-01'::date",
-       hard_deletes='ignore'
+       hard_deletes='invalidate'
    )
 }}
 
