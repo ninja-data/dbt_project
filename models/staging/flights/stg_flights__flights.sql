@@ -5,7 +5,7 @@
 }} 
 SELECT 
     flight_id, 
-    flight_no, 
+    flight_no::varchar(11) as flight_no, 
     scheduled_departure, 
     scheduled_arrival, 
     departure_airport, 

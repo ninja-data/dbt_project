@@ -12,10 +12,17 @@ FROM
     {% set important_aircrafts = [] %}
 {% endif %}
 
-SELECT 
+SELECT
     {% for aircraft in important_aircrafts %}
-    SUM(CASE WHEN aircraft_code = '{{ aircraft }}' THEN 1 ELSE 0 END) as fligths_{{ aircraft }} 
-        {%- if not loop.last %},{% endif %}
+    SUM(CASE WHEN aircraft_code = '{{ aircraft }}' THEN 1 ELSE 0 END) as fligths_{{ aircraft|title|replace('73', 'oo', ) }} 
+        {%- if not loop['last'] %},{% endif %}
+        -- {{ loop.cycle('-', '+')}}
     {%- endfor %}
 FROM
     {{ ref('fct_flights') }}
+
+{#
+    comments
+#}
+
+
