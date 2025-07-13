@@ -3,7 +3,7 @@
 {% set prev_year = current_year - 10 %}
 
 SELECT 
-    COUNT(*)
+    COUNT(*) as {{ adapter.quote('cnt') }}
 FROM
     {{ ref('fct_flights') }}
 WHERE 
@@ -56,7 +56,7 @@ WHERE
 %} #}
 
 
-{% set fct_fligths = api.Relation.create(
+{# {% set fct_fligths = api.Relation.create(
         database = 'dwh_flight',
         schema = 'intermediate',
         identifier = 'fct_fligths',
@@ -81,4 +81,4 @@ WHERE
 
 {% for column in adapter.get_columns_in_relation(fct_fligths) %}
     {{ 'Column: ' ~ column }}
-{%- endfor %} 
+{%- endfor %}  #}
