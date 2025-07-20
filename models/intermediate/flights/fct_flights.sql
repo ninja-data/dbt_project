@@ -18,6 +18,7 @@ select
         when actual_departure is not null and scheduled_departure < actual_departure
             then actual_departure - scheduled_departure
             else INTERVAL '0 seconds'
-    end as flight_departure_delay
+    end as flight_departure_delay,
+    {{ concat_columns(['flight_id', 'flight_no'])}}
 from
     {{ ref('stg_flights__flights') }}

@@ -48,3 +48,9 @@ Try running the following commands:
 - dbt build --select city_region+ 
 
 - dbt seed --full-refresh
+
+- export DBT_DB_PORT='4001' 
+
+
+- run dbt macros: dbt run-operation drop_old_relation
+- run dbt macros with param:dbt run-operation drop_old_relations --args '{"dryrun": False}'
