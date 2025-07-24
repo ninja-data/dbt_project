@@ -3,7 +3,7 @@
     materialized = 'incremental',
     incremental_strategy = 'append',
     tags = ['bookings']
-    )
+  )
 }}
 select
     book_ref,
@@ -13,3 +13,5 @@ from {{ source('demo_src', 'bookings') }}
 {% if is_incremental() %}
 where ('0x' || book_ref)::bigint > (select max(('0x' || book_ref)::bigint) from {{ this }})
 {% endif %}
+
+-- {{ graph.nodes.values() }}
