@@ -18,6 +18,6 @@ select
   airport_code,
   airport_name,
   city,
-  coordinates, 
+  coordinates,
   timezone
 from {{ source('demo_src', 'airports') }}    

@@ -1,0 +1,21 @@
+unit_tests:
+  - name: test_fact_departure_after_scheduled_departure
+    description: "Время фактического отправления позже запланированного. В поле задержки отправления должно быть положительное число"
+    model: fct_flights
+    given:
+      - input: ref('stg_flights__flights')
+        rows:
+          - {scheduled_departure: 2017-09-01T09:25:00+00:00, actual_departure: 2017-09-01T09:27:00+00:00}
+    expect:
+      rows:
+          - {scheduled_departure: 2017-09-01T09:25:00+00:00, actual_departure: 2017-09-01T09:27:00+00:00, flight_departure_delay: 0:01:00}
+  # - name: test_fact_departure_equal_scheduled_departure
+  #   description: "Время фактического отправления равно запланированному. В поле задержки отправления должен быть 0"
+  #   model: fct_flights
+  #   given:
+  #     - input: ref('stg_flights__flights')
+  #       rows:
+  #         - {scheduled_departure: 2017-09-01T09:25:00+00:00, actual_departure: 2017-09-01T09:25:00+00:00}
+  #   expect:
+  #     rows:
+  #         - {scheduled_departure: 2017-09-01T09:25:00+00:00, actual_departure: 2017-09-01T09:25:00+00:00, flight_departure_delay: 0:00:00}

@@ -1,0 +1,14 @@
+seeds:
+  - name: city_region
+    description: Regions and cities
+    config:
+      column_types:
+        city: varchar(50)
+        region: varchar(50)
+        update_at: timestamp
+      delimiter: ";"
+    columns:
+      - name: city
+        tests:
+          - not_null
+          - unique
